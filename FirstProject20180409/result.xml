@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 1..1 -->
+<cisReports batNo="查询批次号" unitName="查询单位名称" subOrgan="分支机构名称" queryUserID="查询操作员登录名" queryCount="查询请求数量" receiveTime="查询申请时间,格式YYYYMMDD HH24:mm:ss">
+	<!-- 以下为每个查询申请的查询结果 1..n -->
+	<cisReport reportID="报告编号" buildEndTime="报告生成结束时间,格式YYYY-MM-DD HH24:mm:ss" queryReasonID="查询原因ID，详见数据字典" subReportTypes="查询的收费子报告ID,多个收费子报告ID用逗号分隔" subReportTypesShortCaption="查询的收费子报告id简称，多个简称之间用空格分隔。" treatResult="暂无特殊含义，可忽略" refID="引用ID,为查询申请条件中的引用ID" hasSystemError="有否系统错误，true：有错误，false：无错误" isFrozen="该客户是否被冻结，true：被冻结，false：未被冻结">
+		<!-- 查询条件信息 1..1 -->
+		<queryConditions>
+			<!-- 1..n -->
+			<item>
+				<name>查询条件英文名称</name>
+				<caption>查询条件中文名称</caption>
+				<value>查询条件值</value>
+			</item>
+		</queryConditions>
+		<!--全国高等教育学历加密信息  1..1 -->
+		<educationEncryptInfo subReportType="子报告ID" subReportTypeCost="收费子报告ID" treatResult="子报告查询状态,1：查得，2：未查得，3：其他原因未查得" treatErrorCode="treatResult=3时的错误代码,详见数据字典,treatResult!=3时,该属性不存在" errorMessage="treatResult=3时的错误描述信息,treatResult!=3时,该属性的值为空">
+			<!--  个人基本信息 0..1 -->
+			<personBaseInfo>
+				<name>姓名</name>
+				<documentNo>证件号码</documentNo>
+				<birthday>出生日期</birthday>
+				<gender>性别</gender>
+				<age>年龄</age>
+				<originalAddress>原始发证地区</originalAddress>
+				<verifyResult>证件号码校验结果，1：通过，0：未通过，只有当校验位校验结果、地区位校验结果、出生日期位校验结果全为1时才返回1</verifyResult>
+			</personBaseInfo>
+			<!--0..1 加密的学历信息-->
+			<encryptInfo>密文
+				<!-- 以下为解密之后的结构
+				<educationInfo>
+					<degreeInfo>
+					   <name>姓名</name>
+					   <documentNo>证件号码</documentNo>
+					   <college>毕业院校。可能为空。</college>
+					   <graduateTime>毕业时间，格式YYYY。可能为空。</graduateTime>
+					   <studyStyle>学习形式，如：普通全日制,全日制,非全日制,脱产,业余,在职,夜大学,远程教育,网络教育,电视教育,函授,开放教育,不详,*等，可能为空。</studyStyle>
+					   <degree>学历层次，如：博士研究生,硕士研究生,研究生班,第二学士学位,本科,高升本,第二本科,专科,高职,专科(高职),第二专科,夜大电大函大普通班,大学,专升本,不详。可能为空。</degree>
+					   <studyResult>毕业结论，毕业、结业、肄业或其他。可能为空。</studyResult>
+					   <photo>相片BASE64编码。可能为空。</photo>
+					</degreeInfo>
+					<collegeInfo>
+					   <college>毕业院校</college>
+					   <collegeOldName>毕业院校原名称</collegeOldName>
+					   <address>院校所在地</address>
+					   <createDate>创建时间</createDate>
+					   <createYears>创建年限</createYears>
+					   <colgCharacter>学校性质</colgCharacter>
+					   <colgLevel>办学层次</colgLevel>
+					   <character>办学性质</character>
+					   <colgType>学校类别</colgType>
+					   <scienceBatch>理科录取批次</scienceBatch>
+					   <artBatch>文科录取批次</artBatch>
+					   <postDoctorNum>博士后流动站数</postDoctorNum>
+					   <doctorDegreeNum>博士点个数</doctorDegreeNum>
+					   <masterDegreeNum>硕士点个数</masterDegreeNum>
+					   <academicianNum>院士人数</academicianNum>
+					   <is211>是否211院校</is211>
+					   <manageDept>主管教育部门</manageDept>
+					   <keySubjectNum>国家重点学科数</keySubjectNum>
+					</collegeInfo>
+				</educationInfo>
+				<lastEducation>
+				  <degree>学历层次，如：博士研究生、硕士研究生、研究生班、第二学士学位、本科、高升本、第二本科、专科、专科(高职)、第二专科、夜大电大函大普通班</degree>
+				  <college>毕业院校</college>
+				  <graduateTime>毕业时间，格式YYYY</graduateTime>
+				  <graduateYears>毕业年限</graduateYears>
+				</lastEducation>-->
+			</encryptInfo>
+      <!--风险特征及授信建议（只有配置此权限才返回此节点，如需要返回，请咨询鹏元业务经理）0..1 --> 
+      <riskAndAdviceInfo>描述信息</riskAndAdviceInfo>
+			<!--0..1密钥信息-->
+			<keyinfo>
+  			<key>加密后的AES密钥</key>
+  			<vkey>RSA密钥对的版本</vkey>
+			</keyinfo>
+		</educationEncryptInfo>
+	</cisReport>
+</cisReports>
+
+
+
+				
+			
